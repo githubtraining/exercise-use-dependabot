@@ -15,7 +15,7 @@ jobs:
         id: events
         uses: ./.github/actions/dependabot-pr-action
         with:
-          event: ${{ toJSON(github) }}
+          context: ${{ toJSON(github) }}
 
       - name: Grading results
         uses: githubtraining/looking-glass-action@v0.2.0
