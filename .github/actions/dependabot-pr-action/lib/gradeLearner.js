@@ -7,7 +7,9 @@ function dependencyHasUpdated() {
 module.exports = () => {
   try {
     const context = core.getInput("context");
-    const pull_request = context.event.pull_request;
+    const ctx = JSON.parse(context);
+    core.info(ctx);
+    const pull_request = ctx.event.pull_request;
     const user = pull_request.user.login;
     const merged = pr.merged;
 
