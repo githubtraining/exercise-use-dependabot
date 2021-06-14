@@ -162,13 +162,10 @@ module.exports = () => {
   try {
     const context = core.getInput("context");
     const ctx = JSON.parse(context);
-    core.info(ctx);
     const pull_request = ctx.event.pull_request;
     const user = pull_request.user.login;
-    const merged = pr.merged;
+    const merged = pull_request.merged;
 
-    core.info(user);
-    core.info(merged);
     if (user === "dependabot[bot]" && merged && dependencyHasUpdated()) {
       return {
         reports: [
@@ -227,7 +224,6 @@ module.exports = () => {
       return "Not Applicable";
     }
   } catch (error) {
-    core.info(error);
     return {
       reports: [
         {
