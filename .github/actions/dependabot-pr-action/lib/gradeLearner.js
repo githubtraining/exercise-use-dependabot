@@ -8,12 +8,12 @@ module.exports = () => {
   try {
     const context = core.getInput("context");
     const pull_request = context.event.pull_request;
+    const user = pull_request.user.login;
+    const merged = pr.merged;
 
-    if (
-      pull_request.user.login === "dependabot[bot]" &&
-      pull_request.merged &&
-      dependencyHasUpdated()
-    ) {
+    core.info(user);
+    core.info(merged);
+    if (user === "dependabot[bot]" && merged && dependencyHasUpdated()) {
       return {
         reports: [
           {
@@ -29,11 +29,7 @@ module.exports = () => {
           },
         ],
       };
-    } else if (
-      pull_request.user.login !== "dependabot[bot]" &&
-      pull_request.merged &&
-      dependencyHasUpdated()
-    ) {
+    } else if (user !== "dependabot[bot]" && merged && dependencyHasUpdated()) {
       return {
         reports: [
           {
@@ -51,8 +47,8 @@ module.exports = () => {
         ],
       };
     } else if (
-      pull_request.user.login === "dependabot[bot]" &&
-      pull_request.merged &&
+      user === "dependabot[bot]" &&
+      merged &&
       !dependencyHasUpdated()
     ) {
       return {
@@ -75,17 +71,18 @@ module.exports = () => {
       return "Not Applicable";
     }
   } catch (error) {
+    core.info(error);
     return {
       reports: [
         {
-          filename: ".gitignore",
+          filename: "",
           isCorrect: false,
           display_type: "actions",
           level: "fatal",
           msg: "Error",
           error: {
             expected: "",
-            got: "An internal error occured.  Please open an issue at: https://github.com/githubtraining/exercise-use-gitignore and let us know!  Thank you",
+            got: "An internal error occured.  Please open an issue at: https://github.com/githubtraining/exercise-use-dependabot and let us know!  Thank you",
           },
         },
       ],
