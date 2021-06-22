@@ -28,7 +28,9 @@ Please complete the instructions below:
 
 Your exercise is graded automatically once you have completed the instructions. To see the result of your exercise, go to the **Actions** tab, and see the most recent run on the **Grading** workflow. <!-- specify expected Looking Glass display_type --><!-- specific place to look -->
 
-![](https://user-images.githubusercontent.com/6351798/119396166-c0736580-bc91-11eb-8bd8-02abddbcf50a.png)
+Below is an example of an incorrect solution and where you can find the provided feedback in the **Grading results:**
+
+![Screen Shot 2021-06-14 at 3 55 54 PM](https://user-images.githubusercontent.com/6351798/121964796-4d598e00-cd29-11eb-8c0e-5a0cf3e73bae.png)
 
 See _[Viewing workflow run history]_ if you need assistance.
 

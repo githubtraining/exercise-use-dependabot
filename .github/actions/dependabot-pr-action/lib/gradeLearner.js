@@ -20,7 +20,7 @@ module.exports = () => {
             isCorrect: true,
             display_type: "actions",
             level: "info",
-            msg: "Great job!  You have sucessfully configured the Dependabot for this repository",
+            msg: "Great job!  You have sucessfully configured Dependabot for this repository",
             error: {
               expected: "",
               got: "",
@@ -61,7 +61,7 @@ module.exports = () => {
             error: {
               expected:
                 "A pull request opened by Dependabot to be successfully merged and JQuery was updated",
-              got: "A pull request was merged, but but JQuery is not a newer version",
+              got: "A pull request was merged, but JQuery is not a newer version",
             },
           },
         ],
